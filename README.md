@@ -19,6 +19,11 @@ every fact changed: the names, the dates, the estate (its map here is a drawn pl
 the places to stay (their telephone numbers are in a range kept for fiction, and the buttons say what they would do)
 and the couple's dashboard, which is left out.
 
+## Who made it
+
+Jean Wentzel, for his own wedding. Under the invitation, at the foot of the demo, there is a band "About the
+developer" with a form to write to him about a website of your own.
+
 ## Photographs
 
 The photographs are free stock from [Unsplash](https://unsplash.com/license), standing in for the real couple's own.

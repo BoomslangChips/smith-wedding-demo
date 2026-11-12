@@ -107,22 +107,15 @@
     document.body.appendChild(d);
     // once the invitation is open, the note is a small tag in the corner (it no longer names the code or covers a button)
     var gate = document.getElementById('gate');
-    var tuck = function () { d.classList.toggle('is-in', !!gate && gate.hidden); };
+    var about = d.querySelector('a');
+    var tuck = function () { var open = !!gate && gate.hidden; d.classList.toggle('is-in', open); if (about) about.setAttribute('href', open ? '#developer' : (window.SMITH_DEMO_LINK || '#developer')); };
+    // "About": the band under the invitation (who made this, and how to write to him)
+    if (about) about.addEventListener('click', function (e) {
+      var dev = document.getElementById('developer'); if (!dev || !gate || !gate.hidden) return;
+      e.preventDefault(); e.stopPropagation(); dev.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      var t = document.getElementById('dvTitle'); if (t) setTimeout(function () { try { t.focus({ preventScroll: true }); } catch (x) { /* fine */ } }, 600);
+    });
     if (gate) { tuck(); try { new MutationObserver(tuck).observe(gate, { attributes: true, attributeFilter: ['hidden'] }); } catch (e) { /* stays as it is */ } }
-  }
-  // A tip jar, only when the couple have set one up (window.SMITH_TIP_LINK: their own page at a tipping service; this
-  // demo never handles money itself): a card at the foot of the page
-  function tipCard() {
-    var link = window.SMITH_TIP_LINK;
-    if (!link || document.getElementById('demoTip')) return;
-    var host = document.querySelector('.colophon') || document.querySelector('footer');
-    var s = document.createElement('section');
-    s.id = 'demoTip';
-    s.style.cssText = 'margin:0 auto;padding:40px 20px 48px;max-width:560px;text-align:center;font:400 17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;color:#2E3532';
-    s.innerHTML = '<p style="margin:0 0 6px;font:400 26px/1.25 \'Playfair Display\',Georgia,serif;color:#5A6964">Enjoyed the Smiths?</p>'
-      + '<p style="margin:0 0 18px;color:#626A66">This demo was made for a real wedding. If it made you smile, you can buy the real couple a coffee.</p>'
-      + '<a href="' + link + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;min-height:48px;padding:0 26px;border-radius:999px;background:#5A6964;color:#fff;font-weight:600;text-decoration:none">Buy us a coffee</a>';
-    if (host && host.parentNode) host.parentNode.insertBefore(s, host); else document.body.appendChild(s);
   }
   // The made-up places. A button that would call someone, open a website or start the drive says what it would do
   // on a real invitation (a small note that goes away by itself); the map's two tabs turn its two drawn plans.
@@ -175,6 +168,6 @@
     var tail = function () { drive.style.setProperty('--vn-tail', Math.max(0, seal.offsetHeight - 10) + 'px'); };
     tail(); if ('ResizeObserver' in window) new ResizeObserver(tail).observe(seal);
   }
-  var start = function () { pill(); tipCard(); thread(); };
+  var start = function () { pill(); thread(); };
   if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
 })();
