@@ -1,0 +1,23 @@
+{
+  "id": "/",
+  "name": "The Smith Wedding",
+  "short_name": "James & Sophie",
+  "description": "James & Sophie, 18 September 2027, Highland Meadow Estate, Mistvale. The weekend, the map, the dress code and your RSVP, even where the signal is weak.",
+  "lang": "en-ZA",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "categories": ["lifestyle", "events", "travel"],
+  "prefer_related_applications": false,
+  "icons": [
+    { "src": "/w/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/w/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/w/icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/w/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/w/icons/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
