@@ -29,6 +29,7 @@
     + '#developer .dv-coffee p{margin:0 0 16px;color:#B8BDB9;font-size:16px}'
     + '#developer .dv-coffee a{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;background:#D8C3A5;color:#171A19;font:600 15.5px/1 var(--font-body);text-decoration:none}'
     + '#developer .dv-coffee a:hover{background:#E6D5BC}'
+    + '#developer .dv-coffee a{white-space:nowrap}#developer .dv-coffee a svg{flex:none;width:21px;height:21px}'
     + '#developer .dv-card{padding:26px 24px 24px;border-radius:20px;background:#fff;color:#2E3532;box-shadow:0 30px 60px -36px rgba(0,0,0,.8)}'
     + '@media (min-width:480px){#developer .dv-card{padding:32px 32px 30px}}'
     + '#developer .dv-card h3{margin:0;font:400 27px/1.2 var(--font-title);color:#5A6964}'
@@ -48,6 +49,24 @@
     + '#developer .dv-foot{margin:56px 0 0;text-align:center;font-size:14px;color:#8E9590}';
   var IC = function (d) { return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg>'; };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  // "Buy us a coffee" where a visitor looks first: in the top menu on a wide screen, in the contents (the menu) and
+  // in the demo's small note on a phone. Each is a plain link to the couple's own tip page, in a new tab.
+  var CUP = IC('<path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM17 10.5h1.5a2.5 2.5 0 0 1 0 5H17M7.5 3.5V6M11 3.5V6M14.5 3.5V6"/>');
+  function coffee(tip) {
+    var st = document.createElement('style');
+    st.textContent = '.hdr-nav a.hdr-coffee{gap:7px;margin-left:10px;min-height:38px;padding:0 15px;border-radius:999px;border:1px solid #C9A1A9;color:var(--accent-text);font-weight:600;transition:background-color .18s ease}'
+      + '.hdr-nav a.hdr-coffee::after{display:none}.hdr-nav a.hdr-coffee:hover{background:var(--blush-wash)}.hdr-nav a.hdr-coffee svg{width:17px;height:17px}'
+      + 'html.ink-night .hdr-nav a.hdr-coffee{border-color:rgba(216,195,165,.6);color:#D8C3A5}html.ink-night .hdr-nav a.hdr-coffee:hover{background:rgba(216,195,165,.12)}'
+      + 'html.view-admin .hdr-coffee{display:none}'
+      + '.toc-foot a.toc-coffee{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;text-decoration:none}.toc-foot a.toc-coffee svg{width:18px;height:18px}'
+      + '#demoPill a.pill-coffee{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}#demoPill a.pill-coffee svg{width:14px;height:14px}';
+    document.head.appendChild(st);
+    var link = function (cls, label) { var a = document.createElement('a'); a.className = cls; a.href = tip; a.target = '_blank'; a.rel = 'noopener'; a.innerHTML = CUP + '<span>' + label + '</span>'; return a; };
+    var nav = document.querySelector('.hdr-nav'); if (nav && !nav.querySelector('.hdr-coffee')) nav.appendChild(link('hdr-coffee', 'Buy us a coffee'));
+    var foot = document.querySelector('.toc-foot'); if (foot && !foot.querySelector('.toc-coffee')) foot.appendChild(link('text-btn toc-coffee', 'Buy us a coffee'));
+    var pill = document.getElementById('demoPill'), x = pill && pill.querySelector('button');
+    if (pill && x && !pill.querySelector('.pill-coffee')) pill.insertBefore(link('pill-coffee', 'Coffee'), x);
+  }
   function build() {
     if (!window.SMITH_DEMO || document.getElementById('developer')) return;
     var st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
@@ -82,6 +101,7 @@
       + '<div class="dv-sent" id="dvSent" hidden></div>'
       + '</form></div>'
       + '<p class="dv-foot">The Smith Wedding is a demo. Nothing you type on this page is kept.</p></div>';
+    if (tip) coffee(tip);
     var foot = document.querySelector('footer.colophon') || document.querySelector('footer');
     if (foot && foot.parentNode) foot.parentNode.insertBefore(s, foot.nextSibling); else document.body.appendChild(s);
     var form = s.querySelector('#dvForm'), msg = s.querySelector('#dvMsg'), sent = s.querySelector('#dvSent');

@@ -2,7 +2,7 @@
 window.WEDDING_SETTINGS = { FULL_ADMIN_URL: '#' };
 window.SMITH_DEMO = true;
 window.SMITH_DEMO_LINK = 'https://github.com/BoomslangChips/smith-wedding-demo#readme';
-window.SMITH_TIP_LINK = "";
+window.SMITH_TIP_LINK = "https://ko-fi.com/asetrix";
 window.DEFAULT_CONFIG = {
  "couple": {
   "one": "James",
