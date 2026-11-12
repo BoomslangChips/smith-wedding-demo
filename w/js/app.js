@@ -1168,7 +1168,7 @@
   const GAL = { list: [], i: 0, shown: 0, layers: [], from: null, io: null };
   const galList = () => (CFG.photos.gallery || []).filter((p) => p && p.src);
   const galRatio = (p) => (p.w > 0 && p.h > 0 ? +(p.w / p.h).toFixed(4) : 1);
-  const galAlt = (p) => p.caption || `James and Sophie ${/bumping-cars/.test(p.src) ? 'together' : 'and their guests'}`;
+  const galAlt = (p) => p.caption || `James and Sophie ${/bumping-cars/.test(p.src) ? 'together' : 'together'}`;
   // how wide a picture is, from its name ("...-640.webp" is 640px on its long side); 0 when the name does not say
   const galWide = (url, p) => {
     const m = /-(\d{3,4})\.(?:webp|avif|jpe?g|png)$/i.exec(url || '');

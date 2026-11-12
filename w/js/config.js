@@ -170,13 +170,13 @@ window.DEFAULT_CONFIG = {
  "accommodation": {
   "mode": "venue",
   "heading": "Stay at the venue",
-  "text": "Accommodation is available on the estate, so you can wake up where the celebrations happen. In this demo there is nothing to book: on a real invitation, the estate’s phone number, a ready-written email and the booking reference are here.",
-  "phone": "",
-  "email": "",
+  "text": "Accommodation is available on the estate, so you can wake up where the celebrations happen. Please book your room directly with the estate, using the contact below and our reference for booking.",
+  "phone": "+44 1632 960100",
+  "email": "stay@highlandmeadow.example",
   "reference": "Smith Wedding",
   "breakfastIncluded": false,
   "emailSubject": "Accommodation request: {ref}",
-  "emailBody": "Hello,\n\nI will be attending the Smith Wedding and would like to request accommodation on the estate.\n\nBooking reference: {ref}\n\nName: \nNumber of guests: \n\nKind regards,\n"
+  "emailBody": "Hi Eleanor,\n\nI will be attending the Smith Wedding and would like to request accommodation on the estate.\n\nBooking reference: {ref}\n\nName: \nNumber of guests: \n\nKind regards,\n"
  },
  "days": [
   {
@@ -428,47 +428,69 @@ window.DEFAULT_CONFIG = {
    {
     "name": "Olivia Bennett",
     "role": "Maid of Honour",
-    "group": "bride"
+    "group": "bride",
+    "photo": "w/img/party/olivia-bennett.jpg"
    },
    {
     "name": "Chloe Martin",
     "role": "Bridesmaid",
-    "group": "bride"
+    "group": "bride",
+    "photo": "w/img/party/chloe-martin.jpg"
    },
    {
     "name": "Grace Turner",
-    "role": "Bridesmaid & Sister",
-    "group": "bride"
+    "role": "Bridesmaid & Officiant",
+    "group": "bride",
+    "photo": "w/img/party/grace-turner.jpg"
    },
    {
     "name": "Lily Cooper",
     "role": "Bridesmaid",
-    "group": "bride"
+    "group": "bride",
+    "photo": "w/img/party/lily-cooper.jpg"
+   },
+   {
+    "name": "Emma Clarke",
+    "role": "Bridesmaid & Sister",
+    "group": "bride",
+    "photo": "w/img/party/emma-clarke.jpg"
    },
    {
     "name": "Daniel Hughes",
     "role": "Best Man",
-    "group": "groom"
+    "group": "groom",
+    "photo": "w/img/party/daniel-hughes.jpg"
    },
    {
     "name": "Thomas Reid",
     "role": "Groomsman",
-    "group": "groom"
+    "group": "groom",
+    "photo": "w/img/party/thomas-reid.jpg"
    },
    {
     "name": "Lucas Smith",
     "role": "Groomsman & Brother",
-    "group": "groom"
+    "group": "groom",
+    "photo": "w/img/party/lucas-smith.jpg"
    },
    {
     "name": "Ethan Brooks",
     "role": "Groomsman",
-    "group": "groom"
+    "group": "groom",
+    "photo": "w/img/party/ethan-brooks.jpg"
+   },
+   {
+    "name": "Noah Carter",
+    "role": "Groomsman",
+    "group": "groom",
+    "photo": "w/img/party/noah-carter.jpg"
    },
    {
     "name": "Henry Walsh",
     "role": "Master of Ceremonies",
-    "group": "mc"
+    "group": "mc",
+    "photo": "w/img/party/henry-walsh.jpg",
+    "cutout": "w/img/party/henry-walsh-cutout.webp"
    }
   ]
  },
@@ -493,7 +515,7 @@ window.DEFAULT_CONFIG = {
   "venue": [
    {
     "src": "w/img/demo/venue-1.jpg",
-    "caption": "The walled garden"
+    "caption": "The gardens"
    },
    {
     "src": "w/img/demo/venue-2.jpg",
@@ -501,7 +523,11 @@ window.DEFAULT_CONFIG = {
    },
    {
     "src": "w/img/demo/venue-3.jpg",
-    "caption": "The meadow at dusk"
+    "caption": "The Great Barn event hall"
+   },
+   {
+    "src": "w/img/demo/venue-4.jpg",
+    "caption": "The Estate & Paddocks"
    }
   ],
   "gallery": [
@@ -517,16 +543,16 @@ window.DEFAULT_CONFIG = {
     "src": "w/img/demo/g2-640.webp",
     "mid": "w/img/demo/g2-1080.webp",
     "full": "w/img/demo/g2-1800.webp",
-    "w": 1800,
-    "h": 1200,
+    "w": 1200,
+    "h": 1800,
     "caption": ""
    },
    {
     "src": "w/img/demo/g3-640.webp",
     "mid": "w/img/demo/g3-1080.webp",
     "full": "w/img/demo/g3-1800.webp",
-    "w": 1200,
-    "h": 1800,
+    "w": 1800,
+    "h": 1200,
     "caption": ""
    },
    {
@@ -557,64 +583,256 @@ window.DEFAULT_CONFIG = {
     "src": "w/img/demo/g7-640.webp",
     "mid": "w/img/demo/g7-1080.webp",
     "full": "w/img/demo/g7-1800.webp",
-    "w": 1200,
-    "h": 1800,
+    "w": 1800,
+    "h": 1200,
     "caption": ""
    },
    {
     "src": "w/img/demo/g8-640.webp",
     "mid": "w/img/demo/g8-1080.webp",
     "full": "w/img/demo/g8-1800.webp",
+    "w": 1200,
+    "h": 1800,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g9-640.webp",
+    "mid": "w/img/demo/g9-1080.webp",
+    "full": "w/img/demo/g9-1800.webp",
+    "w": 1200,
+    "h": 1800,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g10-640.webp",
+    "mid": "w/img/demo/g10-1080.webp",
+    "full": "w/img/demo/g10-1800.webp",
     "w": 1800,
     "h": 1200,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g11-640.webp",
+    "mid": "w/img/demo/g11-1080.webp",
+    "full": "w/img/demo/g11-1800.webp",
+    "w": 1200,
+    "h": 1800,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g12-640.webp",
+    "mid": "w/img/demo/g12-1080.webp",
+    "full": "w/img/demo/g12-1800.webp",
+    "w": 1200,
+    "h": 1800,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g13-640.webp",
+    "mid": "w/img/demo/g13-1080.webp",
+    "full": "w/img/demo/g13-1800.webp",
+    "w": 1200,
+    "h": 1800,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g14-640.webp",
+    "mid": "w/img/demo/g14-1080.webp",
+    "full": "w/img/demo/g14-1800.webp",
+    "w": 1800,
+    "h": 1200,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g15-640.webp",
+    "mid": "w/img/demo/g15-1080.webp",
+    "full": "w/img/demo/g15-1800.webp",
+    "w": 1200,
+    "h": 1800,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g16-640.webp",
+    "mid": "w/img/demo/g16-1080.webp",
+    "full": "w/img/demo/g16-1800.webp",
+    "w": 1200,
+    "h": 1800,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g17-640.webp",
+    "mid": "w/img/demo/g17-1080.webp",
+    "full": "w/img/demo/g17-1800.webp",
+    "w": 1800,
+    "h": 1200,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g18-640.webp",
+    "mid": "w/img/demo/g18-1080.webp",
+    "full": "w/img/demo/g18-1800.webp",
+    "w": 1200,
+    "h": 1800,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g19-640.webp",
+    "mid": "w/img/demo/g19-1080.webp",
+    "full": "w/img/demo/g19-1800.webp",
+    "w": 1800,
+    "h": 1200,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g20-640.webp",
+    "mid": "w/img/demo/g20-1080.webp",
+    "full": "w/img/demo/g20-1800.webp",
+    "w": 1200,
+    "h": 1800,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g21-640.webp",
+    "mid": "w/img/demo/g21-1080.webp",
+    "full": "w/img/demo/g21-1800.webp",
+    "w": 1200,
+    "h": 1800,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g22-640.webp",
+    "mid": "w/img/demo/g22-1080.webp",
+    "full": "w/img/demo/g22-1800.webp",
+    "w": 1200,
+    "h": 1800,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g23-640.webp",
+    "mid": "w/img/demo/g23-1080.webp",
+    "full": "w/img/demo/g23-1800.webp",
+    "w": 1200,
+    "h": 1800,
+    "caption": ""
+   },
+   {
+    "src": "w/img/demo/g24-640.webp",
+    "mid": "w/img/demo/g24-1080.webp",
+    "full": "w/img/demo/g24-1800.webp",
+    "w": 1200,
+    "h": 1800,
     "caption": ""
    }
   ]
  },
  "nearby": [
   {
-   "id": "mill-house",
+   "id": "old-mill-house",
    "name": "The Old Mill House",
    "area": "Mistvale village",
-   "blurb": "A restored mill with six rooms, a fire in every lounge and breakfast by the stream.",
-   "phone": "",
-   "email": "",
-   "url": "",
+   "blurb": "A restored stone mill with six rooms, a fire in every lounge and breakfast in the garden.",
+   "phone": "+44 1632 960101",
+   "email": "stay@oldmillhouse.example",
+   "url": "https://oldmillhouse.example/",
    "distanceKm": 4,
-   "driveMin": 7
+   "driveMin": 7,
+   "mapUrl": "#stay",
+   "photos": [
+    {
+     "src": "w/img/demo/stay-1.jpg",
+     "caption": "The Old Mill House"
+    }
+   ]
   },
   {
-   "id": "heron-lake",
-   "name": "Heron Lake Lodge",
-   "area": "Just outside Mistvale",
-   "blurb": "Stone cottages round a small lake, each with its own fireplace and a view of the hills.",
-   "phone": "",
-   "email": "",
-   "url": "",
-   "distanceKm": 6,
-   "driveMin": 10
-  },
-  {
-   "id": "rosewood",
-   "name": "Rosewood Country House",
+   "id": "thatch-and-thyme",
+   "name": "Thatch & Thyme Cottage",
    "area": "Mistvale village",
-   "blurb": "A country house with a rose garden and a small spa, a short walk from the village shops.",
-   "phone": "",
-   "email": "",
-   "url": "",
+   "blurb": "A thatched cottage for four, with a wood stove and a kitchen garden you may pick from.",
+   "phone": "+44 1632 960102",
+   "email": "stay@thatchandthyme.example",
+   "url": "https://thatchandthyme.example/",
    "distanceKm": 5,
-   "driveMin": 8
+   "driveMin": 8,
+   "mapUrl": "#stay",
+   "photos": [
+    {
+     "src": "w/img/demo/stay-2.jpg",
+     "caption": "Thatch & Thyme Cottage"
+    }
+   ]
   },
   {
-   "id": "hilltop",
-   "name": "Hilltop Cottages",
+   "id": "rosewood-country-house",
+   "name": "Rosewood Country House",
+   "area": "On the hill above Mistvale",
+   "blurb": "A country house hotel with a small spa, long views and dinner by candlelight.",
+   "phone": "+44 1632 960103",
+   "email": "stay@rosewoodcountryhouse.example",
+   "url": "https://rosewoodcountryhouse.example/",
+   "distanceKm": 6,
+   "driveMin": 10,
+   "mapUrl": "#stay",
+   "photos": [
+    {
+     "src": "w/img/demo/stay-3.jpg",
+     "caption": "Rosewood Country House"
+    }
+   ]
+  },
+  {
+   "id": "glen-farm",
+   "name": "Glen Farm",
    "area": "The road to the pass",
-   "blurb": "Self-catering cottages for families and groups, with a long view down the valley.",
-   "phone": "",
-   "email": "",
-   "url": "",
+   "blurb": "A farmhouse in the valley for families and groups, with horses in the next field.",
+   "phone": "+44 1632 960104",
+   "email": "stay@glenfarm.example",
+   "url": "https://glenfarm.example/",
    "distanceKm": 11,
-   "driveMin": 16
+   "driveMin": 16,
+   "mapUrl": "#stay",
+   "photos": [
+    {
+     "src": "w/img/demo/stay-4.jpg",
+     "caption": "Glen Farm"
+    }
+   ]
+  },
+  {
+   "id": "the-white-row",
+   "name": "The White Row",
+   "area": "Just outside Mistvale",
+   "blurb": "Whitewashed cottages side by side on a quiet lane, each with its own fireplace.",
+   "phone": "+44 1632 960105",
+   "email": "stay@thewhiterow.example",
+   "url": "https://thewhiterow.example/",
+   "distanceKm": 3,
+   "driveMin": 5,
+   "mapUrl": "#stay",
+   "photos": [
+    {
+     "src": "w/img/demo/stay-5.jpg",
+     "caption": "The White Row"
+    }
+   ]
+  },
+  {
+   "id": "stonecroft",
+   "name": "Stonecroft Guest House",
+   "area": "Mistvale village",
+   "blurb": "Eight rooms in an old stone farmhouse, a short walk from the village shops.",
+   "phone": "+44 1632 960106",
+   "email": "stay@stonecroft.example",
+   "url": "https://stonecroft.example/",
+   "distanceKm": 4,
+   "driveMin": 6,
+   "mapUrl": "#stay",
+   "photos": [
+    {
+     "src": "w/img/demo/stay-6.jpg",
+     "caption": "Stonecroft Guest House"
+    }
+   ]
   }
  ],
  "faq": [

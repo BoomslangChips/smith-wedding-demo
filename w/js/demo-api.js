@@ -124,6 +124,57 @@
       + '<a href="' + link + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;min-height:48px;padding:0 26px;border-radius:999px;background:#5A6964;color:#fff;font-weight:600;text-decoration:none">Buy us a coffee</a>';
     if (host && host.parentNode) host.parentNode.insertBefore(s, host); else document.body.appendChild(s);
   }
-  var start = function () { pill(); tipCard(); };
+  // The made-up places. A button that would call someone, open a website or start the drive says what it would do
+  // on a real invitation (a small note that goes away by itself); the map's two tabs turn its two drawn plans.
+  var noteT = 0;
+  function note(msg) {
+    var n = document.getElementById('demoNote');
+    if (!n) {
+      var s = document.createElement('style');
+      s.textContent = '#demoNote{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translate(-50%,12px);z-index:2147483001;width:max-content;max-width:min(440px,calc(100vw - 28px));padding:14px 18px;border-radius:16px;background:#2E3532;color:#fff;font:400 15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;box-shadow:0 14px 34px -14px rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease}#demoNote.is-on{opacity:1;transform:translate(-50%,0);pointer-events:auto}#demoNote b{display:block;margin:0 0 2px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#F0C4CB}';
+      document.head.appendChild(s);
+      n = document.createElement('div'); n.id = 'demoNote'; n.setAttribute('role', 'status'); n.setAttribute('aria-live', 'polite');
+      n.addEventListener('click', function () { n.classList.remove('is-on'); });
+      document.body.appendChild(n);
+    }
+    n.innerHTML = '<b>In this demo</b>'; n.appendChild(document.createTextNode(msg));
+    n.classList.add('is-on'); clearTimeout(noteT); noteT = setTimeout(function () { n.classList.remove('is-on'); }, 7000);
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target && e.target.closest ? e.target : null; if (!t) return;
+    var el = t.closest('[data-demo-note]');
+    if (el) { e.preventDefault(); e.stopPropagation(); note(el.getAttribute('data-demo-note')); return; }
+    if (t.closest('[data-demo-far]')) {
+      var out = document.getElementById('locFarOut-card');
+      if (out) out.innerHTML = '<span class="loc-far__hint">The estate is made up, so it is as far away as you like. On a real invitation this line gives the drive from where you are, in kilometres and minutes.</span>';
+      return;
+    }
+    el = t.closest('[data-demo-tab]');
+    if (el) {
+      var on = el.getAttribute('data-demo-tab'), tabs = document.getElementById('locTabs'), frame = document.getElementById('locFrame');
+      if (tabs) { tabs.setAttribute('data-on', on); [].forEach.call(tabs.querySelectorAll('[data-demo-tab]'), function (b) { var sel = b === el; b.setAttribute('aria-selected', sel ? 'true' : 'false'); b.tabIndex = sel ? 0 : -1; }); }
+      var a = document.getElementById('dmEstate'), b2 = document.getElementById('dmAround');
+      if (a && b2) { a.hidden = on !== 'estate'; b2.hidden = on !== 'around'; }
+      if (frame) frame.setAttribute('aria-labelledby', el.id);
+      return;
+    }
+    el = t.closest('#stay a[href^="tel:"], #stay a[href^="mailto:"], #stay a.st-act');
+    if (el) {
+      e.preventDefault(); e.stopPropagation();
+      var h = el.getAttribute('href') || '';
+      note(h.indexOf('tel:') === 0 ? 'This place is made up, so nobody would answer. On a real invitation this button calls them.'
+        : h.indexOf('mailto:') === 0 ? 'This place is made up. On a real invitation this opens an email to them, already written, with the booking reference in it.'
+        : /Directions/.test(el.textContent) ? 'This place is made up, so no road leads to it. On a real invitation this opens the way there in your maps app.'
+        : 'This place is made up. On a real invitation this opens its own website.');
+    }
+  }, true);
+  // the drive's thread ends at the gate's seal (the real page's map script does this; the demo has no map script)
+  function thread() {
+    var drive = document.getElementById('locDrive'), seal = document.getElementById('vnGate');
+    if (!drive || !seal) return;
+    var tail = function () { drive.style.setProperty('--vn-tail', Math.max(0, seal.offsetHeight - 10) + 'px'); };
+    tail(); if ('ResizeObserver' in window) new ResizeObserver(tail).observe(seal);
+  }
+  var start = function () { pill(); tipCard(); thread(); };
   if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
 })();
